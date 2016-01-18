@@ -116,14 +116,102 @@
 # main()
 
 # creating a username
-def main():
-  print("This program makes usernames!\n")
-  firstName = input("What is your first name (all lowercase)? ")
-  lastName = input("What is your last name (all lowercase)? ")
-  username = firstName[0] + lastName[:7]
-  print("Your username is", username)
+# def main():
+#   print("This program makes usernames!\n")
+#   firstName = input("What is your first name (all lowercase)? ")
+#   lastName = input("What is your last name (all lowercase)? ")
+#   username = firstName[0] + lastName[:7]
+#   print("Your username is", username)
 
-main()
+# main()
+
+# This program prints the abbreviation of a month given the month number
+# def main():
+#   pos = eval(input("What is the month number? "))
+#   months = "JanFebMarAprMayJunJulAugSepOctNovDec"
+#   # remember: slice goes from first and stops BEFORE last
+#   monthAbbrev = months[3*pos - 3: 3*pos]
+#   print("The month is", monthAbbrev)
+
+# main()
+
+# This program converts a textual message into a sequence of numbers, using Unicode
+# def main():
+#   message = input("Please enter the message to be encoded: ")
+#   for ch in message:
+#     print(ord(ch), end = " ")
+#     # end = " " tells it to print a space after the output and print the next output after that
+#     # This keeps everything on the same line
+
+# main()
+
+# This program decodes Unicode
+# def main():
+#   # get the input as a string
+#   inString = input("Please enter the numbers: ")
+#   # empty variable to store message
+#   message = ""
+#   # loop through each string of numbers
+#   for numStr in inString.split():
+#     # convert them into int's
+#     codeNum = eval(numStr)
+#     # convert the ints into characters and add them to the message
+#     message = message + chr(codeNum)
+#   print("\nThe message is: ", message)
+
+# main()
+
+# more efficient decoder
+# def main():
+#   inString = input("Please enter the numbers: ")
+#   chars = []
+#   for numStr in inString.split():
+#     codeNum = eval(numStr)
+#     chars.append(chr(codeNum))
+#   message = "".join(chars)
+#   print("\nThe decoded message is: ", message)
+
+# main()
+
+# Converts a date in form "mm/dd/yyyy" to "month day, year"
+# def main():
+#     # get the date
+#     dateStr = input("Enter a date (mm/dd/yyyy): ")
+#     # split into components
+#     monthStr, dayStr, yearStr = dateStr.split("/")
+#     # convert monthStr to the month name
+#     months = ["January", "February", "March", "April",
+#               "May", "June", "July", "August",
+#               "September", "October", "November", "December"]
+#     monthStr = months[int(monthStr)-1]
+#     # output result in month day, year format
+#     print("The converted date is:", monthStr, dayStr+",", yearStr)
+
+# main()
+
+# #    Program to create a file of usernames in batch mode.
+# def main():
+#     print("This program creates a file of usernames from a")
+#     print("file of names.")
+#     # get the file names
+#     infileName = input("What file are the names in? ")
+#     outfileName = input("What file should the usernames go in? ")
+#     # open the files
+#     infile = open(infileName, "r")
+#     outfile = open(outfileName, "w")
+#     # process each line of the input file
+#     for line in infile:
+#         # get the first and last names from line
+#         first, last = line.split()
+#         # create the username
+#         uname = (first[0]+last[:7]).lower()
+#         # write it to the output file
+#         print(uname, file=outfile)
+#     # close both files
+#     infile.close()
+#     outfile.close()
+#     print("Usernames have been written to", outfileName)
+# main()
 
 
 
