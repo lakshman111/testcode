@@ -104,17 +104,26 @@
 # main()
 
 # find the greatest number out of n numbers
+# def main():
+#   n = eval(input("How many numbers are there? "))
+#   max = eval(input("What is the first number? "))
+#   for i in range(n-1):
+#     x = eval(input("What is the next number? "))
+#     if x > max:
+#       max = x
+#   print("The biggest number is", max)
+
+# main()
+
+# creating a username
 def main():
-  n = eval(input("How many numbers are there? "))
-  max = eval(input("What is the first number? "))
-  for i in range(n-1):
-    x = eval(input("What is the next number? "))
-    if x > max:
-      max = x
-  print("The biggest number is", max)
+  print("This program makes usernames!\n")
+  firstName = input("What is your first name (all lowercase)? ")
+  lastName = input("What is your last name (all lowercase)? ")
+  username = firstName[0] + lastName[:7]
+  print("Your username is", username)
 
 main()
-
 
 
 
