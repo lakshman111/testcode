@@ -213,6 +213,90 @@
 #     print("Usernames have been written to", outfileName)
 # main()
 
+# Learning how to return multiple values
+# def sumDiff(x,y):
+#     sum = x+y
+#     diff = x-y
+#     return sum, diff
+
+# num1, num2 = eval(input("Please enter two numbers separated by a comma: "))
+# s, d = sumDiff(num1, num2)
+# print("The sum is", s, "and the difference is", d)
+
+# # This program adds interest to a bank account
+# def addInterest(balances, rate):
+#   for i in range(len(balances)):
+#     balances[i] = balances[i] * (1+rate)
+  
+# def test():
+#   amounts = [1000, 2200, 800, 360]
+#   rate = .05
+#   addInterest(amounts, rate)
+#   # When addInterest terminates, the list stored in amounts now contains
+#   # the new balances, and that is what gets printed.
+#   # Python passes parameters to functions. Parameters are always passed by value. 
+#   # However, if the value of the variable is a mutable object (like a list or graphics object),
+#   # then changes to the state of the object will be visible to the calling program.
+#   print(amounts)
+
+# test()
+
+# This program calculates the average of any set of numbers
+# But we see that this is where we should use a while loop
+# def main():
+#   n = eval(input("What is the count of the numbers? "))
+#   sum = 0
+#   for i in range(n):
+#     x = eval(input("Please enter a number: "))
+#     sum += x
+#   print("\nThe average of the numbers is", sum/n)
+
+# main()
+
+# Same as above, but using a sweet while loop
+# def main():
+#   sum = 0.0
+#   count = 0
+#   moreData = "yes"
+
+#   while moreData[0] == "y":
+#     x = eval(input("Enter a number: "))
+#     sum += x
+#     count += 1
+#     moreData = input("Is there another number? (yes/no) ")
+
+#   print("The average is: ", sum/count)
+
+# main()
+
+# Made even better with a "sentinel" loop
+# def main():
+#     sum = 0.0
+#     count = 0
+#     xStr = input("Enter a number (<Enter> to quit) >> ")
+#     while xStr != "":
+#         x = eval(xStr)
+#         sum = sum + x
+#         count = count + 1
+#         xStr = input("Enter a number (<Enter> to quit) >> ")
+#     print("\nThe average of the numbers is", sum / count)
+# main()
+
+# Same, but if you wanted to read from a file:
+# def main():
+#     fileName = input("What file are the numbers in? ")
+#     infile = open(fileName,’r’)
+#     sum = 0.0
+#     count = 0
+#     line = infile.readline()
+#     while line != "":
+#         sum = sum + eval(line)
+#         count = count + 1
+#         line = infile.readline()
+#     print("\nThe average of the numbers is", sum / count)
+# main()
+
+# Again, same, but if you wanted to put a lot of numbers on the same line
 
 
 
