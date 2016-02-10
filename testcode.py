@@ -298,6 +298,169 @@
 
 # Again, same, but if you wanted to put a lot of numbers on the same line
 
+# example of a post test loop
+# number = -1  # Start with an illegal value to get into the loop.
+# while number < 0:
+#     number = eval(input("Enter a positive number: "))
+
+# can also exit the loop with a break
+# while True:
+#     number = eval(input("Enter a positive number: "))
+#     if x >= 0: break # Exit loop if number is valid. can only do if "if" has one statement
+
+# if the user doesn't input a value
+# ans = input("What flavor do you want [vanilla]: ")
+# if ans:
+#     flavor = ans
+# else:
+#     flavor = "vanilla"
+# print("You chose", flavor)
+
+# to be fancy, we can even do this in one line
+# flavor = input("What flavor do you want [vanilla]: ") or "vanilla"
+
+# Mean, median, and mode, using one program
+# from math import sqrt
+# def getNumbers():
+#     nums = []     # start with an empty list
+#     # sentinel loop to get numbers
+#     xStr = input("Enter a number (<Enter> to quit) >> ")
+#     while xStr != "":
+#         x = eval(xStr)
+#         nums.append(x)   # add this value to the list
+#         xStr = input("Enter a number (<Enter> to quit) >> ")
+# return nums
+# def mean(nums):
+#     sum = 0.0
+#     for num in nums:
+#         sum = sum + num
+#     return sum / len(nums)
+# def stdDev(nums, xbar):
+#     sumDevSq = 0.0
+#     for num in nums:
+#         dev = num - xbar
+#         sumDevSq = sumDevSq + dev * dev
+#     return sqrt(sumDevSq/(len(nums)-1))
+# def median(nums):
+#     nums.sort()
+#     size = len(nums)
+#     midPos = size // 2
+#     if size % 2 == 0:
+#         median = (nums[midPos] + nums[midPos-1]) / 2.0
+#     else:
+#         median = nums[midPos]
+#     return median
+# def main():
+#     print("This program computes mean, median and standard deviation.")
+#     data = getNumbers()
+#     xbar = mean(data)
+#     std = stdDev(data, xbar)
+#     med = median(data)
+#     print("\nThe mean is", xbar)
+#     print("The standard deviation is", std)
+#     print("The median is", med)
+# # This last line allows us to import this code and use it later for other stuff    
+# if __name__ == ’__main__’: main()
+
+# This program takes in a file of students, sorts them by GPA, and writes it to a new file
+# from gpa import Student, makeStudent
+# def readStudents(filename):
+#     infile = open(filename, ’r’)
+#     students = []
+#     for line in infile:
+#         students.append(makeStudent(line))
+#     infile.close()
+#     return students
+# def writeStudents(students, filename):
+#     outfile = open(filename, ’w’)
+#     for s in students:
+#         print("{0}\t{1}\t{2}".format(s.getName(), s.getHours(), s.getQPoints()),
+#               file=outfile)
+#     outfile.close()
+# def main():
+#     print("This program sorts student grade information by GPA")
+#     filename = input("Enter the name of the data file: ")
+#     data = readStudents(filename)
+#     data.sort(key=Student.gpa)
+#     filename = input("Enter a name for the output file: ")
+#     writeStudents(data, filename)
+#     print("The data has been written to", filename)
+# if __name__ == ’__main__’:
+#     main()
+
+# Class definition for an n-sided die
+
+# from random import randrange
+
+# class MSdie:
+#   def __init__(self, sides):
+#     self.sides = sides
+#     self.value = 1
+#   def roll(self):
+#     self.value = randrange(1,self.sides+1)
+
+#   def getValue(self):
+#     print(self.value)
+#     return self.value
+
+#   def setValue(self, value):
+#     self.value = value
+
+
+# die1 = MSdie(6)
+# die1.getValue()
+# die1.roll()
+# die1.getValue()
+# die2 = MSdie(13)
+# die2.getValue()
+# die2.setValue(8)
+# die2.getValue()
+
+# Class definition for Students
+class Student:
+  def __init__(self, name, hours, qpoints):
+    self.name = name
+    self.hours = float(hours)
+    self.qpoints = float(qpoints)
+
+  def getName(self):
+    return self.name
+
+  def getHours(self):
+    return self.hours
+
+  def getQPoints(self):
+    return self.qpoints
+
+  def gpa(self):
+    return self.qpoints/self.hours
+
+def makeStudent(infoStr):
+  # infoStr is the tab separated line in the file (all of a student's info)
+  # return a student object w/ this info
+  name, hours, qpoints = infoStr.split(",")
+  return Student(name, hours, qpoints)
+
+def main():
+  filename = input("Enter name of the grade file: ")
+  infile = open(filename, 'r')
+  # set the first student as the best
+  best = makeStudent(infile.readline())
+  # process next lines
+  for line in infile:
+    # turn each line into a student record
+    s = makeStudent(line)
+    # if the student is the best, remember it
+    if s.gpa() > best.gpa():
+      best = s
+  infile.close()
+  # print info about the best student
+  print("The best student is", best.getName())
+  print("Hours:", best.getHours())
+  print("GPA:", best.gpa())
+
+main()
+
 
 
 
