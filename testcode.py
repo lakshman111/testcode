@@ -416,50 +416,130 @@
 # die2.setValue(8)
 # die2.getValue()
 
-# Class definition for Students
-class Student:
-  def __init__(self, name, hours, qpoints):
-    self.name = name
-    self.hours = float(hours)
-    self.qpoints = float(qpoints)
+# Class definition for Students, find the best student in the class
+# class Student:
+#   def __init__(self, name, hours, qpoints):
+#     self.name = name
+#     self.hours = float(hours)
+#     self.qpoints = float(qpoints)
 
-  def getName(self):
-    return self.name
+#   def getName(self):
+#     return self.name
 
-  def getHours(self):
-    return self.hours
+#   def getHours(self):
+#     return self.hours
 
-  def getQPoints(self):
-    return self.qpoints
+#   def getQPoints(self):
+#     return self.qpoints
 
-  def gpa(self):
-    return self.qpoints/self.hours
+#   def gpa(self):
+#     return self.qpoints/self.hours
 
-def makeStudent(infoStr):
-  # infoStr is the tab separated line in the file (all of a student's info)
-  # return a student object w/ this info
-  name, hours, qpoints = infoStr.split(",")
-  return Student(name, hours, qpoints)
+# def makeStudent(infoStr):
+#   # infoStr is the tab separated line in the file (all of a student's info)
+#   # return a student object w/ this info
+#   name, hours, qpoints = infoStr.split(",")
+#   return Student(name, hours, qpoints)
 
-def main():
-  filename = input("Enter name of the grade file: ")
-  infile = open(filename, 'r')
-  # set the first student as the best
-  best = makeStudent(infile.readline())
-  # process next lines
-  for line in infile:
-    # turn each line into a student record
-    s = makeStudent(line)
-    # if the student is the best, remember it
-    if s.gpa() > best.gpa():
-      best = s
-  infile.close()
-  # print info about the best student
-  print("The best student is", best.getName())
-  print("Hours:", best.getHours())
-  print("GPA:", best.gpa())
+# def main():
+#   filename = input("Enter name of the grade file: ")
+#   infile = open(filename, 'r')
+#   # set the first student as the best
+#   best = makeStudent(infile.readline())
+#   # process next lines
+#   for line in infile:
+#     # turn each line into a student record
+#     s = makeStudent(line)
+#     # if the student is the best, remember it
+#     if s.gpa() > best.gpa():
+#       best = s
+#   infile.close()
+#   # print info about the best student
+#   print("The best student is", best.getName())
+#   print("Hours:", best.getHours())
+#   print("GPA:", best.gpa())
 
-main()
+# main()
+
+
+# linear search
+# def search(x, nums):
+#   try:
+#     return nums.index(x)
+#   except:
+#     return -1
+
+# print(search(7,[3,1,4,2,5]))
+
+# def search(x, nums):
+#     low = 0
+#     high = len(nums) - 1
+#     while low <= high:
+#       mid = (low + high)//2 
+#       item = nums[mid] 
+#       if x == item:
+#         return mid
+#       elif x < item:
+#         high = mid - 1 
+#       else:
+#         low = mid + 1
+#     return -1
+# print(search(7,[3,1,4,2,5]))
+
+# There is still a range to search
+# position of middle item
+# Found it! Return the index
+# x is in lower half of range
+#     move top marker down
+# x is in upper half
+#     move bottom marker up
+# no range left to search,
+# x is not there
+
+# RECURSION
+# factorial
+# def fact(n):
+#   if n == 0:
+#     return 1
+#   else:
+#     return n*fact(n-1)
+
+# print(fact(3))
+
+
+# reversing a string:
+# def reverse(s):
+#   if s == '':
+#     return s
+#   else:
+#     # each time it runs, we save the first letter of that sequence on the end
+#     return reverse(s[1:]) + s[0]
+
+# print(reverse('Hello'))
+
+# creating an anagram  HARD
+# def anagrams(s):
+#   if s == "":
+#     return [s]
+#   else:
+#     ans = []
+#     for w in anagrams(s[1:]):
+#       for pos in range(len(w)+1):
+#         ans.append(w[:pos]+s[0]+w[pos:])
+#     return ans
+
+# print(anagrams('abc'))
+
+# Fibonacci is more efficient as a loop than recursive!
+def loopfib(n):
+  curr = 1
+  prev = 1
+  for i in range(n-2):
+    curr,prev = curr+prev, curr
+  return curr
+
+print(loopfib(6))
+
 
 
 
