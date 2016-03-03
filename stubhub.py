@@ -23,3 +23,5 @@ df['row'] = [x['rd'] for x in tickets]
 df['price'] = [x['cp'] for x in tickets]
 df['quantity'] = [x['qt'] for x in tickets]
 print(df.head(20))
+
+df.to_csv('event.csv')
